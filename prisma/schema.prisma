@@ -11,8 +11,7 @@ datasource db {
 }
 
 model Snippet {
-  id Int @id @default(autoincrement())
-  title String
-  code String
-  
+  id    Int     @id @default(autoincrement()) // 고유 ID
+  title String  // 제목
+  code  String  // 코드
 }
