@@ -40,3 +40,14 @@ export default async function SnippetShowPage(props: ISnippetShowPage) {
     </div>
   );
 }
+
+// build시 미리 cached page로 준비할 수 있게 함
+export async function generateStaticParams() {
+  const snippets = await db.snippet.findMany();
+
+  return snippets.map((snippet) => {
+    return {
+      id: snippet.id.toString(),
+    };
+  });
+}
